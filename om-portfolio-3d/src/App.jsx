@@ -8,13 +8,14 @@ import Projects from "./components/Projects.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import Journey from "./components/Journey.jsx";
+import Achievements from "./components/Achievements.jsx";
 
 function App() {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const sections = document.querySelectorAll(
-      "#about, #journey, #skills, #projects, #contact"
+      "#about, #journey, #skills, #achievements, #projects, #contact"
     );
 
     const observer = new IntersectionObserver(
@@ -94,6 +95,7 @@ const navLinks = [
   { name: "Skills", id: "skills" },
   { name: "Projects", id: "projects" },
   { name: "Contact", id: "contact" },
+  { name: "Achievements", id: "achievements" },
 ];
 
   return (
@@ -214,6 +216,7 @@ const navLinks = [
       <About />
       <Journey />
       <Skills />
+      <Achievements />
       <Projects />
       <Contact />
       <Footer />
