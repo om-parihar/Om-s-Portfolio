@@ -1,0 +1,92 @@
+/* ==========================================
+   LIVE VIEW COUNTER
+   Matches the dark theme + monospace accent
+   already used in .avail / .status-badge
+   ========================================== */
+
+.view-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(6px);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.75);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.view-counter:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* pulsing live dot, same visual language as .avail-dot */
+.view-counter-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6);
+  animation: view-pulse 2s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes view-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+  }
+}
+
+.view-counter-num {
+  font-weight: 500;
+  color: #ffffff;
+  min-width: 1ch;
+}
+
+.view-counter-label {
+  text-transform: uppercase;
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+/* Loading / skeleton state before the count arrives */
+.view-counter-num.is-loading {
+  opacity: 0.4;
+}
+
+.view-counter-num.is-loading::after {
+  content: "···";
+  animation: view-loading-dots 1.2s steps(3, end) infinite;
+}
+
+@keyframes view-loading-dots {
+  0%   { content: "·"; }
+  33%  { content: "··"; }
+  66%  { content: "···"; }
+}
+
+/* Footer placement variant — sits quietly next to your copyright line */
+footer .view-counter {
+  margin-left: 12px;
+  font-size: 11px;
+  padding: 4px 10px;
+}
+
+/* Responsive: stack cleanly on small screens if placed in footer */
+@media (max-width: 480px) {
+  footer .view-counter {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}
