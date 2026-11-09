@@ -82,6 +82,12 @@ const badges = [
 
 const certificates = [
   {
+    title: "Oracle Certificate",
+    issuer: "Oracle",
+    file: "/certificates/AgenticAiOracle.pdf",
+    type: "PDF",
+  },
+  {
     title: "CSS Certificate",
     file: "/certificates/css%20certificate.pdf",
     issuer: "Certificate",
@@ -96,12 +102,6 @@ const certificates = [
     title: "Generative AI",
     issuer: "Google",
     file: "/certificates/Gen%20Ai.pdf",
-    type: "PDF",
-  },
-  {
-    title: "HTML Certificate",
-    issuer: "Infosys",
-    file: "/certificates/HTML.pdf",
     type: "PDF",
   },
   {
